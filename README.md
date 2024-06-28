@@ -1,140 +1,167 @@
-# FastAPI Starter Kit
-A professional FastAPI template
-
-<p>
-    If the repo is helpful, please give a star and fork it.
-</p>
-<a href="https://github.com/MahmudJewel/fastapi-starter-kit/fork">
-    Click here to clone/fork the repository
-</a>
-
-
 ## Features:
-
+ 
 - FastAPI project structure tree
+ 
 - user module
-  - **id**, **name**, **email**, **password**, **phone_number**,**created_at**,**otp**, **expires_at**, **is_active** ,**role**, **refresh_token**
+    **User**
+        - **id**, **name**, **email**, **password**, **phone_number**,**created_at**,**otp**, **expires_at**, **is_active** ,**roles**, **refresh_token**(roles Relation for the **UserRole** table)
+    **Role**
+        - **id**, **name**, **email**,**user**(user Relation for the **UserRole** table)
+ 
+    **User**
+    - **user_id**, **role_id**, **user**,**role**(user and Relation to the **User** table and **Role** table)
+ 
 - database => sqlite
-- authentication => JWT
-- db migration => alembic
-- CORS middleware
-
+ 
+- authentication => JWT Autentication
+ 
+ 
 ## Structured Tree
+ 
 ```
+ 
 ├── fastapi
-│   ├── project
-│   │   ├── routers   # Contains modules for each feature (user, product, payments).
-│   │   │   ├── __init__.py
-│   │   │   ├──Role.py
-│   │   │   └──User.py
-│   │   ├── core
+ 
+│   ├── project
+ 
+│   │   ├── core
+ 
 │   │   │    ├──__init__.py
-│   │   │    ├──auth.py
-│   │   │    └──config.py   # Contains core functionality like database management,
-│   │   ├── database.py
-│   │   ├── dependencies.py
-│   │   ├── main.py     # Initializes the FastAPI app and brings together various components.
-│   │   ├── models      # Contains modules defining database models for Users,Role UserRole.
-│   │   ├── __init__.py
-│   │   ├── schemas   # Pydantic model for data validation
-        ├── requirements.txt # Lists project dependencies.
+ 
+│   │   │    ├──auth.py
+ 
+│   │   │    └──config.py   # Contains core functionality like database management,
+ 
+│   │   ├── routers   # Contains modules for each feature (user, product, payments).
+ 
+│   │   │    ├── __init__.py
+ 
+│   │   │    ├──Role.py
+ 
+│   │   │    └──User.py
+ 
+│   │   ├── crud.py
+ 
+│   │   ├── database.py
+ 
+│   │   ├── dependency.py
+ 
+│   │   ├── main.py     # Initializes the FastAPI app and brings together various components.
+ 
+│   │   ├── models      # Contains modules defining database models for Users,Role UserRole.
+ 
+│   │   ├── __init__.py
+ 
+│   │   ├── schemas.py   # Pydantic model for data validation
+ 
+│   │    ├── requirements.txt # Lists project dependencies.
+ 
 ```
-
-**app/api/endpoints/**: Contains modules for each feature (user, product, payments).
-
-**app/api/routers/**: Contains FastAPI routers, where each router corresponds to a feature.
-
-**app/models/**: Contains modules defining database models for users, products, payments, etc.
-
-**app/core/**: Contains core functionality like database management, dependencies, etc.
-
-**app/utils/**: Can include utility functions that are used across different features.
-
-**app/main.py**: Initializes the FastAPI app and brings together various components.
-
-**tests/**: Houses your test cases.
-
-**alembic/**: Manages database migrations.
-
-**docs/**: Holds documentation files.
-
-**scripts/**: Contains utility scripts.
-
-**requirements.txt**: Lists project dependencies.
-
+ 
+**/user/create-otp**: Api used to Create User by Signin
+ 
+**/user/verify-otp**:Api used to Verify the User to  Signin once the otp verfied tahen the user created
+ 
+**/user/login**: Api used to Login once otp is valid then user login and get token (put)
+ 
+**/user/login**: Api used to Login and get Tokens(post)
+ 
+**/user/request_otp**: Api used to  request get otp to login
+ 
+**/user/refresh_token/**: Api used to create a Access Token
+ 
+**/user/change_password/**: Api used to Change The Password after Login
+ 
+**/user/logout/**:Api used to logout
+ 
+**/user/single/user/{user_id}**:Api used to Get the Single user Data
+ 
+**/user/all/**:Api used to Get the all the User
+ 
+**/user/user/{user_id}**:Api used to delete the Single user Data
+ 
+**/user/email_To_Forget_Password**:Api used to Change passwords if the user Forget the Password user Verification by the Email
+ 
+**/user/otp_verify**: Api used to verify the otp Allow user Change Password in Forget Password
+ 
+**/user/change_froget_password**: Api perform , once the user verify the otp  user Allowed to  Change Password  in fileds for new_password
+ 
+**/user/create/User_Role**:Api used to create a User with Role Manually by  Anotheruser
+ 
+**/user/user/{user_id}**:Api used to update the created a User and Role Manually by  Anotheruser
+ 
+**/Role/create/role**:Api used to Create the Role
+ 
 # Setup
-
-The first thing to do is to clone the repository:
-
-```sh
-$ https://github.com/MahmudJewel/fastapi-starter-kit
-```
-
+Creat folder by the Structured Tree
+ 
+ 
 Create a virtual environment to install dependencies in and activate it:
-
+ 
 ```sh
-$ cd fastapi-starter-kit
+ 
 $ python -m venv venv
+ 
 $ source venv/bin/activate
+ 
 ```
-
+ 
 Then install the dependencies:
-
+ 
 ```sh
-# for fixed version
+ 
+# for this to Install all library at once
+ 
 (venv)$ pip install -r requirements.txt
-
-# or for updated version
-(venv)$ pip install -r dev.txt
+ 
+#other wise install all the packages manually
+ 
+(venv)$ pip install fastapi
+(venv)$ pip install bycrpt
+(venv)$ pip install uvicorn
+(venv)$ pip install PyJWT python-jose
+(venv)$ pip install pydantic
+(venv)$ pip install passlib
+(venv)$ pip install SQLAlchemy
+(venv)$ pip install alembic
+ 
+ 
 ```
-
-Note the `(venv)` in front of the prompt. This indicates that this terminal
-session operates in a virtual environment set up by `virtualenv2`.
-
-Once `pip` has finished downloading the dependencies:
-
-```sh
-# db migrations
-(venv)$ alembic upgrade head
-
-# start the server
-(venv)$ uvicorn app.main:app --reload
-```
-
-## User module's API
-
-| SRL | METHOD   | ROUTE              | FUNCTIONALITY                  | Fields                                                                                |
-| --- | -------- | ------------------ | ------------------------------ | ------------------------------------------------------------------------------------- |
-| _1_ | _POST_   | `/login`           | _Login user_                   | _**email**, **password**_                                                             |
-| _2_ | _POST_   | `/users/`          | _Create new user_              | _**email**, **password**, first name, last name_                                      |
-| _3_ | _GET_    | `/users/`          | _Get all users list_           | _email, password, first name, last name, role, is_active, created_at, updated_at, id_ |
-| _4_ | _GET_    | `/users/me/`       | _Get current user details_     | _email, password, first name, last name, role, is_active, created_at, updated_at, id_ |
-| _5_ | _GET_    | `/users/{user_id}` | _Get indivisual users details_ | _email, password, first name, last name, role, is_active, created_at, updated_at, id_ |
-| _6_ | _PATCH_  | `/users/{user_id}` | _Update the user partially_    | _email, password, is_active, role_                                                    |
-| _7_ | _DELETE_ | `/users/{user_id}` | _Delete the user_              | _None_                                                                                |
-| _8_ | _GET_    | `/`                | _Home page_                    | _None_                                                                                |
-| _9_ | _GET_    | `/admin`           | _Admin Dashboard_              | _None_                                                                                |
-
+ 
+Once `pip` has finished downloaded you installed all the requirement:
+ 
+To Run the Api **uvicorn project.main:app --reload**
+ 
+ 
 # Tools
-
+ 
 ### Back-end
-
+ 
 #### Language:
-
-    Python
-
+ 
+    Python above(3.7)
+ 
 #### Frameworks:
-
+ 
     FastAPI
+ 
     pydantic
-
+ 
 #### Other libraries / tools:
-
+ 
     SQLAlchemy
+ 
     starlette
+ 
     uvicorn
+ 
     python-jose
-    alembic
-
-For production level project, Please follow this repo https://github.com/MahmudJewel/fastapi-production-kit
-### Happy Coding
+ 
+    bycrpt
+ 
+    pyJWT
+ 
+    passlib
+ 
+### Thank You
+ 
