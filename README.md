@@ -13,7 +13,7 @@ A professional FastAPI template
 
 - FastAPI project structure tree
 - user module
-  - id, name, **email**, **password**, **phone_number**,role, is_active created_at, expires_at
+  - **id**, **name**, **email**, **password**, **phone_number**,**created_at**,**otp**, **expires_at**, **is_active** ,**role**, **refresh_token**
 - database => sqlite
 - authentication => JWT
 - db migration => alembic
@@ -26,18 +26,15 @@ A professional FastAPI template
 │   │   ├── routers   # Contains modules for each feature (user, product, payments).
 │   │   │   ├── __init__.py
 │   │   │   ├──Role.py
-│   │   │   └── User.py
-│   │   │     
+│   │   │   └──User.py
 │   │   ├── core
 │   │   │    ├──__init__.py
 │   │   │    ├──auth.py
-│   │   │    └──config.py   # Contains core functionality like database management, dependencies, etc.
+│   │   │    └──config.py   # Contains core functionality like database management,
 │   │   ├── database.py
 │   │   ├── dependencies.py
 │   │   ├── main.py     # Initializes the FastAPI app and brings together various components.
 │   │   ├── models      # Contains modules defining database models for Users,Role UserRole.
-│   │   ├── admin.py
-│   │   ├── common.py
 │   │   ├── __init__.py
 │   │   ├── schemas   # Pydantic model for data validation
         ├── requirements.txt # Lists project dependencies.
