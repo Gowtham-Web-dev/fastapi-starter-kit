@@ -91,7 +91,7 @@
  
 **/user/create/User_Role**:Api used to create a User with Role Manually by  Anotheruser **(post)**
  
-**/user/user/{user_id}**:Api used to update the created a User and Role Manually by  Anotheruser **(put)**
+**/user/user/{user_id}**:Api used to update the created User with Role Manually by  Anotheruser **(put)**
  
 **/Role/create/role**:Api used to Create the Role  **(post)**
  
