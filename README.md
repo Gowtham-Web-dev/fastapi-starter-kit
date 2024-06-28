@@ -1,16 +1,6 @@
 # FastAPI Starter Kit
 A professional FastAPI template
-<p>
-    <a href="https://github.com/MahmudJewel/fastapi-starter-kit/fork">
-        <img src="https://img.shields.io/github/forks/MahmudJewel/fastapi-starter-kit.svg?style=social&label=Fork" />
-    </a>
-    <a href="https://github.com/MahmudJewel/fastapi-starter-kit/fork">
-        <img src="https://img.shields.io/github/stars/MahmudJewel/fastapi-starter-kit.svg?style=social&label=Stars" />
-    </a>
-    <a href="https://github.com/MahmudJewel/fastapi-starter-kit/fork">
-        <img src="https://img.shields.io/nuget/dt/Azylee.Core.svg" />
-    </a>
-</p>
+
 <p>
     If the repo is helpful, please give a star and fork it.
 </p>
@@ -18,56 +8,39 @@ A professional FastAPI template
     Click here to clone/fork the repository
 </a>
 
-<!-- [![Fork](https://img.shields.io/github/forks/MahmudJewel/fastapi-starter-kit.svg?style=social&label=Fork)](https://github.com/MahmudJewel/fastapi-starter-kit/fork)
-[![Stars](https://img.shields.io/github/stars/MahmudJewel/fastapi-starter-kit.svg?style=social&label=Stars)](https://github.com/MahmudJewel/fastapi-starter-kit)
-[![NuGet](https://img.shields.io/nuget/dt/Azylee.Core.svg)](https://www.nuget.org/packages/Azylee.Core)   -->
 
 ## Features:
 
 - FastAPI project structure tree
 - user module
-  - id, first name, last name, **email** as username, **password**, role, is_active created_at, updated_at
-- admin dashboard => sqladmin
+  - id, name, **email**, **password**, **phone_number**,role, is_active created_at, expires_at
+- database => sqlite
 - authentication => JWT
 - db migration => alembic
 - CORS middleware
 
 ## Structured Tree
-
-```sh
-├── alembic     # Manages database migrations
-├── alembic.ini
-├── app
-│   ├── api
-│   │   ├── endpoints   # Contains modules for each feature (user, product, payments).
+```
+├── fastapi
+│   ├── project
+│   │   ├── routers   # Contains modules for each feature (user, product, payments).
 │   │   │   ├── __init__.py
-│   │   │   └── user
-│   │   │       ├── auth.py
-│   │   │       ├── functions.py
-│   │   │       ├── __init__.py
-│   │   │       └── user.py
-│   │   ├── __init__.py
-│   │   └── routers     # Contains FastAPI routers, where each router corresponds to a feature.
-│   │       ├── api.py
-│   │       ├── __init__.py
-│   │       └── user.py
-│   ├── core    # Contains core functionality like database management, dependencies, etc.
+│   │   │   ├──Role.py
+│   │   │   └── User.py
+│   │   │     
+│   │   ├── core
+│   │   │    ├──__init__.py
+│   │   │    ├──auth.py
+│   │   │    └──config.py   # Contains core functionality like database management, dependencies, etc.
 │   │   ├── database.py
 │   │   ├── dependencies.py
-│   │   ├── __init__.py
-│   │   └── settings.py
-│   ├── __init__.py
-│   ├── main.py     # Initializes the FastAPI app and brings together various components.
-│   ├── models      # Contains modules defining database models for users, products, payments, etc.
+│   │   ├── main.py     # Initializes the FastAPI app and brings together various components.
+│   │   ├── models      # Contains modules defining database models for Users,Role UserRole.
 │   │   ├── admin.py
 │   │   ├── common.py
 │   │   ├── __init__.py
-│   │   └── user.py
-│   ├── schemas   # Pydantic model for data validation
-│   │   ├── __init__.py
-│   │   └── user.py
-│   └── utils       # Can include utility functions that are used across different features.
-├── requirements.txt # Lists project dependencies.
+│   │   ├── schemas   # Pydantic model for data validation
+        ├── requirements.txt # Lists project dependencies.
 ```
 
 **app/api/endpoints/**: Contains modules for each feature (user, product, payments).
