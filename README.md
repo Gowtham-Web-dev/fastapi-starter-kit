@@ -133,7 +133,7 @@ Then install the dependencies:
  
 Once `pip` has finished downloaded you installed all the requirement:
  
-To Run the Api **uvicorn project.main:app --reload**
+To Run the Api  `**uvicorn project.main:app --reload**`
  
  
 # Tools
