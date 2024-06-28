@@ -148,11 +148,13 @@ To Run the Api  `**uvicorn project.main:app --reload**`
  
     FastAPI
  
-    pydantic
+   
  
 #### Other libraries / tools:
  
     SQLAlchemy
+
+    pydantic
  
     starlette
  
