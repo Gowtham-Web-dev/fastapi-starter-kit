@@ -44,7 +44,7 @@
  
 │   │   ├── crud.py				# Contains crud functionality like database management
  
-│   │   ├── database.py  	 #Contains crud functionality like database connection
+│   │   ├── database.py  	 #Contains database functionality like database connection
  
 │   │   ├── dependency.py
  
