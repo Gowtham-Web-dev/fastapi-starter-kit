@@ -3,13 +3,14 @@
 - FastAPI project structure tree
  
 - user module
+- 
   **User**
         - **id**, **name**, **email**, **password**, **phone_number**,**created_at**,**otp**, **expires_at**, **is_active** ,**roles**, **refresh_token**(roles Relation to the **UserRole** table)
   
    **Role**
         - **id**, **name**, **email**,**user**(user Relation to the **UserRole** table)
  
-   **User**
+   **UserRole**
     - **user_id**, **role_id**, **user**,**role**(user and Relation to the **User** table and **Role** table)
  
 - database => sqlite
