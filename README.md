@@ -42,7 +42,7 @@
  
 │   │   │    └──User.py				# Contains user functionality like Singin ,Login
  
-│   │   ├── crud.py					#Contains crud functionality like database management
+│   │   ├── crud.py				# Contains crud functionality like database management
  
 │   │   ├── database.py  	 #Contains crud functionality like database connection
  
