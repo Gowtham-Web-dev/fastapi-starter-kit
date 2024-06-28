@@ -30,21 +30,21 @@
  
 │   │   │    ├──__init__.py
  
-│   │   │    ├──auth.py
+│   │   │    ├──auth.py     # Contains auth functionality like  validations,
  
-│   │   │    └──config.py   # Contains core functionality like database management,
+│   │   │    └──config.py   # Contains core functionality like send_otp ,
  
 │   │   ├── routers   # Contains modules for  (API ROUTER).
  
 │   │   │    ├── __init__.py
  
-│   │   │    ├──Role.py
+│   │   │    ├──Role.py				#  Contains role functionality like Admin ,manager
  
-│   │   │    └──User.py
+│   │   │    └──User.py				# Contains user functionality like Singin ,Login
  
-│   │   ├── crud.py
+│   │   ├── crud.py							 #Contains crud functionality like database management
  
-│   │   ├── database.py
+│   │   ├── database.py  	 #Contains crud functionality like database connection
  
 │   │   ├── dependency.py
  
@@ -56,7 +56,7 @@
  
 │   │   ├── schemas.py   # Pydantic model for data validation
  
-│   │    ├── requirements.txt # Lists project dependencies.
+│   │    ├── requirements.txt # Lists project requirements
  
 ```
  
