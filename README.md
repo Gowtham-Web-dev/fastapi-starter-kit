@@ -2,7 +2,7 @@
  
 - FastAPI project structure tree
  
-#user module
+## Table Model
   
   **User**
         - **id**, **name**, **email**, **password**, **phone_number**,**created_at**,**otp**, **expires_at**, **is_active** ,**roles**, **refresh_token**(roles Relation to the **UserRole** table)
