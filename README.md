@@ -60,39 +60,40 @@
  
 ```
  
-**/user/create-otp**: Api used to Create User by Signin
+**/user/create-otp**: Api used to Create User by Signin **(post)**
  
-**/user/verify-otp**:Api used to Verify the User to  Signin once the otp verfied tahen the user created
+**/user/verify-otp**:Api used to Verify the User to  Signin once the otp verfied then the user created **(put)**
  
-**/user/login**: Api used to Login once otp is valid then user login and get token (put)
+**/user/login**: Api used to Login once otp is valid then user login and get token **(put)**
  
-**/user/login**: Api used to Login and get Tokens(post)
+**/user/login**: Api used to Login and get Tokens **(post)**
+
+**/user/request_otp**: Api used to  request get otp to login **(post)**
  
-**/user/request_otp**: Api used to  request get otp to login
+**/user/refresh_token/**: Api used to create a Access Token **(post)**
+
  
-**/user/refresh_token/**: Api used to create a Access Token
+**/user/change_password/**: Api used to Change The Password after Login  **(put)**
  
-**/user/change_password/**: Api used to Change The Password after Login
+**/user/logout/**:Api used to logout **(delete)**
  
-**/user/logout/**:Api used to logout
+**/user/single/user/{user_id}**:Api used to Get the Single user Data **(get)**
  
-**/user/single/user/{user_id}**:Api used to Get the Single user Data
+**/user/all/**:Api used to Get the all the User **(get)**
  
-**/user/all/**:Api used to Get the all the User
+**/user/user/{user_id}**:Api used to delete the Single user Data **(delete)**
  
-**/user/user/{user_id}**:Api used to delete the Single user Data
+**/user/email_To_Forget_Password**:Api used to Change passwords if the user Forget the Password user Verification by the Email **(put)**
  
-**/user/email_To_Forget_Password**:Api used to Change passwords if the user Forget the Password user Verification by the Email
+**/user/otp_verify**: Api used to verify the otp Allow user Change Password in Forget Password **(post)**
  
-**/user/otp_verify**: Api used to verify the otp Allow user Change Password in Forget Password
+**/user/change_froget_password**: Api perform , once the user verify the otp  user Allowed to  Change Password  in fileds for new_password **(put)**
  
-**/user/change_froget_password**: Api perform , once the user verify the otp  user Allowed to  Change Password  in fileds for new_password
+**/user/create/User_Role**:Api used to create a User with Role Manually by  Anotheruser **(post)**
  
-**/user/create/User_Role**:Api used to create a User with Role Manually by  Anotheruser
+**/user/user/{user_id}**:Api used to update the created a User and Role Manually by  Anotheruser **(put)**
  
-**/user/user/{user_id}**:Api used to update the created a User and Role Manually by  Anotheruser
- 
-**/Role/create/role**:Api used to Create the Role
+**/Role/create/role**:Api used to Create the Role  **(post)**
  
 # Setup
 Creat folder by the Structured Tree
