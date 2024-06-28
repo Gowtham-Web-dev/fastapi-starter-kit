@@ -34,7 +34,7 @@
  
 │   │   │    └──config.py   # Contains core functionality like database management,
  
-│   │   ├── routers   # Contains modules for each feature (user, product, payments).
+│   │   ├── routers   # Contains modules for  (API ROUTER).
  
 │   │   │    ├── __init__.py
  
